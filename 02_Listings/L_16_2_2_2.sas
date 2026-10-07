@@ -1,0 +1,107 @@
+/*******************************************************************
+* Client: PHARMA Private Limited.
+* Project: Protocol: 043-1-2025
+* Program: L_16_2_2_2.SAS
+*
+* Program Type: Listing
+*
+* Purpose: To produce 16.2.2.2 Serious Adverse Events Leading to Death
+* Usage Notes: Uses ADAM.ADAE; selects fatal serious events; displays "No observations" if none; 
+*              creates OUTPUTS/L_16_2_2_2.RTF
+*
+* SAS Version: Base SAS 9.4_M8
+* Operating System: SAS OnDemand Linux server (client: Windows 11)  
+*
+* Author: ANSANIA SALAM
+* Date Created: 30JUL2026
+* Modification History: 05OCT2026
+*******************************************************************/
+
+LIBNAME ADAM "/home/u64420862/Ansania_MCC_Immunotherapy_Phase1/ADaM";
+
+DATA LISTING_FATAL_AE;
+SET ADAM.ADAE;
+WHERE AESER = "Y" AND UPCASE(STRIP(AEOUT)) = "FATAL";
+SPA = CATX("/", AETERM, AEBODSYS, AEDECOD);
+KEEP USUBJID SPA AESTDTC AEENDTC AESER AEACN AEREL AEOUT;
+RUN;
+
+/* Add a display row if no fatal serious adverse events matched. */
+PROC SQL NOPRINT;
+SELECT COUNT(*) INTO :N_FATAL TRIMMED
+FROM LISTING_FATAL_AE;
+QUIT;
+
+%MACRO ADD_NOOBS;
+%IF &N_FATAL = 0 %THEN %DO;
+DATA LISTING_FATAL_AE;
+LENGTH USUBJID $40 SPA $200 AESTDTC $20 AEENDTC $20
+AESER $1 AEACN $200 AEREL $200 AEOUT $40;
+SPA = "No observations";
+OUTPUT;
+RUN;
+%END;
+%MEND ADD_NOOBS;
+
+%ADD_NOOBS;
+
+%INCLUDE "/home/u64420862/Ansania_MCC_Immunotherapy_Phase1/Macro/RTF.sas";
+
+OPTIONS ORIENTATION=LANDSCAPE;
+TITLE1 J=L "PHARMA Private Limited.";
+TITLE2 J=L "Protocol: 043-1-2025";
+TITLE3 J=C "16.2.2.2 Serious Adverse Events Leading to Death";
+FOOTNOTE1 J=L "Ansania_MCC_Immunotherapy_Phase1/MCCListings/L_16_2_2_2.sas";
+
+ODS ESCAPECHAR='^';
+ODS RTF FILE= "/home/u64420862/Ansania_MCC_Immunotherapy_Phase1/OUTPUTS/L_16_2_2_2.RTF"
+STYLE=Styles.Test;
+
+PROC REPORT DATA=LISTING_FATAL_AE NOWD
+STYLE={OUTPUTWIDTH=100%} MISSING SPLIT='|';
+
+COLUMN USUBJID SPA AESTDTC AEENDTC AESER AEACN AEREL AEOUT;
+
+DEFINE USUBJID / ORDER "Subj.|No."
+STYLE(COLUMN)={JUST=L CELLWIDTH=15%}
+STYLE(HEADER)={JUST=L CELLWIDTH=15%};
+
+DEFINE SPA / ORDER
+"Adverse Event/Primary System Organ|Class/Preferred Term"
+STYLE(COLUMN)={JUST=L CELLWIDTH=25%}
+STYLE(HEADER)={JUST=L CELLWIDTH=25%};
+
+DEFINE AESTDTC / DISPLAY "Start|Date/Time"
+STYLE(COLUMN)={JUST=L CELLWIDTH=10%}
+STYLE(HEADER)={JUST=L CELLWIDTH=10%};
+
+DEFINE AEENDTC / DISPLAY "End|Date/Time"
+STYLE(COLUMN)={JUST=L CELLWIDTH=10%}
+STYLE(HEADER)={JUST=L CELLWIDTH=10%};
+
+DEFINE AESER / DISPLAY "Serious|Event"
+STYLE(COLUMN)={JUST=L CELLWIDTH=6%}
+STYLE(HEADER)={JUST=L CELLWIDTH=6%};
+
+DEFINE AEACN / DISPLAY "Action Taken"
+STYLE(COLUMN)={JUST=L CELLWIDTH=8%}
+STYLE(HEADER)={JUST=L CELLWIDTH=8%};
+
+DEFINE AEREL / DISPLAY "Relationship|to Study Drug"
+STYLE(COLUMN)={JUST=L CELLWIDTH=10%}
+STYLE(HEADER)={JUST=L CELLWIDTH=10%};
+
+DEFINE AEOUT / DISPLAY "Outcome"
+STYLE(COLUMN)={JUST=L CELLWIDTH=10%}
+STYLE(HEADER)={JUST=L CELLWIDTH=10%};
+
+COMPUTE BEFORE _PAGE_;
+LINE@1 "^{STYLE[OUTPUTWIDTH=100% BORDERTOPWIDTH=0.5PT]}";
+ENDCOMP;
+
+COMPUTE AFTER _PAGE_;
+LINE@1 "^{STYLE[OUTPUTWIDTH=100% BORDERTOPWIDTH=0.5PT]}";
+ENDCOMP;
+RUN;
+
+ODS _ALL_ CLOSE;
