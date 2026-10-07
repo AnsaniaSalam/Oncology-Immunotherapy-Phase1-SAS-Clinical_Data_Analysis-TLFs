@@ -11,7 +11,7 @@ Programs currently included:
 - [T_14_1_5.sas](T_14_1_5.sas) — Changes in vital signs
 - [T_14_1_6.sas](T_14_1_6.sas) — Laboratory shift table
 - [T_14_1_7.sas](T_14_1_7.sas) — Objective response rates (in progress)
-- [T_14_1_8.sas](T_14_1_8.sas) — Time-to-event analysis (in progress)
+- [T_14_1_8.sas](T_14_1_8.sas) — Time-to-event analysis 
 - [T_14_1_9.sas](T_14_1_9.sas) — Follow-up time analysis (in progress)
 
 Input ADaM datasets are not included. See the main README for project details and data-use notes.
