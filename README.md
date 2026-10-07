@@ -33,6 +33,14 @@ The datasets are not included in this repository.
 
 - SAS programs for tables, listings, and figures
 - Selected outputs approved for public sharing
+### Attached Folders
+- [Table Programs](01_Tables/)
+- [Listing Programs](02_Listings/)
+- [Figure Programs](03_Figures/)
+- [Generated Outputs](04_OUTPUTS/)
+  - [Table Outputs](04_OUTPUTS/01_Tables/)
+  - [Listing Outputs](04_OUTPUTS/02_Listings/)
+  - [Figure Outputs](04_OUTPUTS/03_Figures/)
 
 ## Running the Programs
 
