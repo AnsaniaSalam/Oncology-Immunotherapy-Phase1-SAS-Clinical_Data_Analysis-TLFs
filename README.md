@@ -6,7 +6,7 @@ This portfolio project uses SAS to analyze clinical trial data and create tables
 
 ## Project Status
 
-**In progress.** Most planned outputs have been prepared. Two tables remain in progress; both are being debugged because its output does not yet match the expected result.
+**Near completion.**  Most planned outputs are complete; two tables remain to be finalized.
 
 ## CDISC Data Standards and Input Datasets
 
