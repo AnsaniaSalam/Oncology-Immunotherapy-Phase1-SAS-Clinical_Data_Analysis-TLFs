@@ -1,0 +1,243 @@
+/*******************************************************************
+* Client: PHARMA Private Limited.
+* Project: Protocol: 043-1-2025
+* Program: T_14_1_2.SAS
+*
+* Program Type: Table
+*
+* Purpose: To produce Table 14.1.2 Subject Demographics - Age
+*          (Safety Population)
+* Usage Notes: Summarizes AGE for the safety population by treatment
+*              group and overall.
+*
+* SAS Version: Base SAS 9.4_M8
+* Operating System: SAS OnDemand Linux server (client: Windows 11)
+*
+* Author: ANSANIA SALAM
+* Date Created: 25MAY2026
+* Modification History: 07OCT2026
+*******************************************************************/
+
+LIBNAME ADAM "/home/u64420862/Ansania_MCC_Immunotherapy_Phase1/ADaM";
+
+/* Header cap N / big N counts - always take from ADSL */
+
+DATA ADSL1;
+SET ADAM.ADSL;
+IF SAFFL='Y';
+OUTPUT;
+TRT01AN=5;
+TRT01A='ALL';
+OUTPUT;
+KEEP USUBJID TRT01AN TRT01A;
+RUN;
+
+PROC SQL NOPRINT;
+CREATE TABLE TRT AS
+SELECT TRT01AN, TRT01A, COUNT(DISTINCT USUBJID) AS DENOM
+FROM ADSL1
+GROUP BY TRT01AN, TRT01A
+ORDER BY TRT01AN, TRT01A;
+
+SELECT DENOM INTO :BIGN1-:BIGN5
+FROM TRT;
+QUIT;
+
+%PUT &BIGN1 &BIGN2 &BIGN3 &BIGN4 &BIGN5;
+
+/* Body part */
+
+DATA ADSL2;
+SET ADAM.ADSL;
+IF SAFFL='Y';
+OUTPUT;
+TRT01AN=5;
+TRT01A='ALL';
+OUTPUT;
+KEEP USUBJID TRT01AN TRT01A AGE;
+RUN;
+
+/* Subjects Planned treatment / Age statistics */
+
+PROC SUMMARY DATA=ADSL2 NWAY;
+CLASS TRT01AN;
+VAR AGE;
+OUTPUT OUT=ADSL_SUM2
+N=AGE_N
+MEAN=AGE_MEAN
+MEDIAN=AGE_MEDIAN
+STD=AGE_SD
+MIN=AGE_MIN
+MAX=AGE_MAX;
+RUN;
+
+/* Format summary statistics for display */
+
+DATA ADSL_SUM3;
+SET ADSL_SUM2;
+LENGTH CN CMEAN CSTD CMEDIAN CMIN CMAX $20;
+
+IF MISSING(AGE_N) THEN CN='0';
+ELSE CN=STRIP(PUT(AGE_N, BEST.));
+
+IF MISSING(AGE_MEAN) THEN CMEAN='';
+ELSE CMEAN=STRIP(PUT(AGE_MEAN, 8.1));
+
+IF MISSING(AGE_SD) THEN CSTD='';
+ELSE CSTD=STRIP(PUT(AGE_SD, 8.2));
+
+IF MISSING(AGE_MEDIAN) THEN CMEDIAN='';
+ELSE CMEDIAN=STRIP(PUT(AGE_MEDIAN, 8.1));
+
+IF MISSING(AGE_MIN) THEN CMIN='';
+ELSE CMIN=STRIP(PUT(AGE_MIN, 8.));
+
+IF MISSING(AGE_MAX) THEN CMAX='';
+ELSE CMAX=STRIP(PUT(AGE_MAX, 8.));
+
+KEEP TRT01AN CN CMEAN CSTD CMEDIAN CMIN CMAX;
+RUN;
+
+/* Transpose treatment groups into explicitly named report columns */
+
+PROC TRANSPOSE DATA=ADSL_SUM3 OUT=ADSL_SUM4 PREFIX=TRT;
+ID TRT01AN;
+VAR CN CMEAN CSTD CMEDIAN CMIN CMAX;
+RUN;
+
+/* Assign statistic labels and display order */
+
+DATA ADSL_SUM5;
+SET ADSL_SUM4;
+LENGTH STAT $100;
+
+IF _NAME_='CN' THEN DO;
+ORD=1;
+STAT=' n';
+END;
+
+IF _NAME_='CMEAN' THEN DO;
+ORD=2;
+STAT=' Mean';
+END;
+
+IF _NAME_='CSTD' THEN DO;
+ORD=3;
+STAT=' SD';
+END;
+
+IF _NAME_='CMEDIAN' THEN DO;
+ORD=4;
+STAT=' Median';
+END;
+
+IF _NAME_='CMIN' THEN DO;
+ORD=5;
+STAT=' Minimum';
+END;
+
+IF _NAME_='CMAX' THEN DO;
+ORD=6;
+STAT=' Maximum';
+END;
+
+DROP _NAME_;
+RUN;
+
+PROC SORT DATA=ADSL_SUM5;
+BY ORD;
+RUN;
+
+/* Add the Age (Years) section heading */
+
+DATA LBL;
+LENGTH STAT $100 TRT1-TRT5 $20;
+STAT='Age (Years)';
+ORD=0;
+TRT1='';
+TRT2='';
+TRT3='';
+TRT4='';
+TRT5='';
+RUN;
+
+DATA FINAL;
+SET LBL ADSL_SUM5;
+RUN;
+
+/* Report */
+
+%INCLUDE "/home/u64420862/Ansania_MCC_Immunotherapy_Phase1/Macro/RTF.sas";
+
+OPTIONS ORIENTATION=LANDSCAPE;
+
+TITLE1 J=L "PHARMA Private Limited.";
+TITLE2 J=L "Protocol: 043-1-2025";
+TITLE3 J=C "Table 14.1.2 Subject Demographics - Age (Safety Population)";
+
+FOOTNOTE1 J=L
+"Ansania_MCC_Immunotherapy_Phase1/MCCTables/T_14_1_2.sas";
+
+ODS ESCAPECHAR='^';
+
+ODS RTF FILE=
+"/home/u64420862/Ansania_MCC_Immunotherapy_Phase1/OUTPUTS/T_14_1_2.RTF"
+STYLE=Styles.Test;
+
+PROC REPORT DATA=FINAL NOWD STYLE={OUTPUTWIDTH=100%} MISSING SPLIT='|';
+COLUMN ORD STAT TRT1 TRT2 TRT3 TRT4 TRT5;
+
+DEFINE ORD / ORDER NOPRINT;
+
+DEFINE STAT / "CATEGORY"
+STYLE(COLUMN)={JUST=L CELLWIDTH=39% ASIS=ON}
+STYLE(HEADER)={JUST=L CELLWIDTH=39% ASIS=ON};
+
+DEFINE TRT1 / "DRUG A|(N=&BIGN1)"
+STYLE(COLUMN)={JUST=L CELLWIDTH=12%}
+STYLE(HEADER)={JUST=L CELLWIDTH=12%};
+
+DEFINE TRT2 / "DRUG B|(N=&BIGN2)"
+STYLE(COLUMN)={JUST=L CELLWIDTH=12%}
+STYLE(HEADER)={JUST=L CELLWIDTH=12%};
+
+DEFINE TRT3 / "DRUG C|(N=&BIGN3)"
+STYLE(COLUMN)={JUST=L CELLWIDTH=12%}
+STYLE(HEADER)={JUST=L CELLWIDTH=12%};
+
+DEFINE TRT4 / "DRUG D|(N=&BIGN4)"
+STYLE(COLUMN)={JUST=L CELLWIDTH=12%}
+STYLE(HEADER)={JUST=L CELLWIDTH=12%};
+
+DEFINE TRT5 / "ALL|(N=&BIGN5)"
+STYLE(COLUMN)={JUST=L CELLWIDTH=12%}
+STYLE(HEADER)={JUST=L CELLWIDTH=12%};
+
+COMPUTE BEFORE _PAGE_;
+LINE@1 "^{STYLE[OUTPUTWIDTH=100% BORDERTOPWIDTH=0.5PT]}";
+ENDCOMP;
+
+COMPUTE AFTER _PAGE_;
+LINE@1 "^{STYLE[OUTPUTWIDTH=100% BORDERTOPWIDTH=0.5PT]}";
+ENDCOMP;
+
+RUN;
+
+ODS _ALL_ CLOSE;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
