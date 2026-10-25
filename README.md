@@ -1,86 +1,128 @@
-# 🔬 Phase 1 Clinical Trial: Intralesional Immunotherapy with Active Drug Vaccine in Patients with Advanced Merkel Cell Carcinoma or Cutaneous Squamous Cell Carcinoma
+<div align="center">
 
-[![SAS](https://img.shields.io/badge/Language-SAS_9.4-navy.svg)](https://www.sas.com/)
-[![CDISC](https://img.shields.io/badge/Standard-CDISC_SDTM%2FADaM-blue.svg)](https://www.cdisc.org/)
-[![Domain](https://img.shields.io/badge/Domain-Oncology_Clinical_Trials-red.svg)]()
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1E3A8A,100:BE123C&height=210&section=header&text=Phase%201%20Oncology%20Clinical%20Trial&fontSize=38&fontColor=ffffff&desc=TLF%20programming%20in%20SAS%20%7C%20CDISC%20ADaM&descAlignY=66" alt="Phase 1 Oncology Clinical Trial banner" />
+
+![SAS](https://img.shields.io/badge/SAS-9.4-1E3A8A?logo=sas&logoColor=white)
+![CDISC](https://img.shields.io/badge/CDISC-SDTM%20%2F%20ADaM-2563EB)
+![Domain](https://img.shields.io/badge/Domain-Oncology-BE123C)
+![Outputs](https://img.shields.io/badge/Outputs-Tables%20%7C%20Listings%20%7C%20Figures-7C3AED)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Status](https://img.shields.io/badge/status-completed-success)
+
+## 🔬 Intralesional Immunotherapy with Active Drug Vaccine in Patients with Advanced Merkel Cell Carcinoma or Cutaneous Squamous Cell Carcinoma
+
+**SAS programs for Tables, Listings and Figures (TLFs) in a Phase 1 oncology study.**
+
+</div>
 
 ---
 
 ## 📌 Project Overview
 
-This portfolio project utilizes **SAS 9.4** to analyze clinical trial data and generate production-grade **Tables, Listings, and Figures (TLFs)** for a Phase 1 oncology immunotherapy study evaluating an active drug vaccine in patients with advanced **Merkel Cell Carcinoma (MCC)** or **Cutaneous Squamous Cell Carcinoma (cSCC)**.
+This portfolio project uses **SAS 9.4** to analyse clinical trial data and produce **Tables, Listings and Figures (TLFs)** for a Phase 1 oncology immunotherapy study. The study evaluates an active drug vaccine in patients with advanced **Merkel Cell Carcinoma (MCC)** or **Cutaneous Squamous Cell Carcinoma (cSCC)**.
 
 ---
 
-## 👨‍💻 Project Information
+## 🧾 Study at a Glance
 
-* **Author:** Ansania Salam
-* **Domain:** Clinical Research / Clinical Data Analysis / Biostatistics / Oncology
-* **Data Standards:** CDISC ADaM & SDTM
-* **Key SAS Technologies:** SAS Studio, Base SAS 9.4_M8, ODS RTF, PROC REPORT, PROC LIFETEST, PROC SGPLOT, PROC FREQ, PROC SUMMARY
+| | |
+|---|---|
+| 🧪 **Phase** | Phase 1 |
+| 🎯 **Indication** | Advanced Merkel Cell Carcinoma (MCC) or Cutaneous Squamous Cell Carcinoma (cSCC) |
+| 💉 **Intervention** | Intralesional immunotherapy with an active drug vaccine |
+| 📐 **Data standards** | CDISC SDTM and ADaM |
+| 💻 **Software** | SAS Studio, Base SAS 9.4_M8 |
+| 📊 **Deliverables** | Tables, Listings and Figures |
 
 ---
 
-## 🚦 Project Status
+## 👩‍💻 Project Information
 
- **Status:** Completed
+| | |
+|---|---|
+| **Author** | Ansania Salam |
+| **Domain** | Clinical Research · Clinical Data Analysis · Biostatistics · Oncology |
+| **Key SAS tools** | SAS Studio, Base SAS 9.4_M8, ODS RTF, PROC REPORT, PROC LIFETEST, PROC SGPLOT, PROC FREQ, PROC SUMMARY |
+| **Status** | ✅ Completed |
 
 ---
 
 ## 📊 CDISC Standards & Input Datasets
 
-The analysis leverages CDISC-compliant **ADaM (Analysis Data Model)** datasets derived from raw SDTM domains:
+The analysis uses CDISC-compliant **ADaM (Analysis Data Model)** datasets derived from raw SDTM domains.
 
-| Dataset | Description | Primary Analytical Focus |
-| :--- | :--- | :--- |
-| **`ADSL`** | Subject Level Analysis Dataset | Demographics, treatment arm assignments, & population counts |
-| **`ADAE`** | Adverse Events Analysis Dataset | Treatment-emergent adverse events (TEAEs) & safety profiling |
-| **`ADLB`** | Laboratory Results Analysis Dataset | Hematology, chemistry, & toxicity grade changes |
-| **`ADVS`** | Vital Signs Analysis Dataset | Baseline & post-baseline vital signs evaluation |
-| **`ADRS`** | Response Analysis Dataset | Best overall response (RECIST 1.1) & tumor assessment |
-| **`ADTTE`** | Time-to-Event Analysis Dataset | Progression-free survival (PFS) & overall survival (OS) |
-| **`ADEFF`** | Efficacy Analysis Dataset | Secondary efficacy endpoints & target lesion measurements |
+| Dataset | Description | Analytical Focus |
+|:--------|:------------|:-----------------|
+| **`ADSL`** | Subject Level Analysis Dataset | Demographics, treatment arm assignments and population counts |
+| **`ADAE`** | Adverse Events Analysis Dataset | Treatment-emergent adverse events (TEAEs) and safety profile |
+| **`ADLB`** | Laboratory Results Analysis Dataset | Hematology, chemistry and toxicity grade changes |
+| **`ADVS`** | Vital Signs Analysis Dataset | Baseline and post-baseline vital signs |
+| **`ADRS`** | Response Analysis Dataset | Best overall response (RECIST 1.1) and tumour assessment |
+| **`ADTTE`** | Time-to-Event Analysis Dataset | Progression-free survival (PFS) and overall survival (OS) |
+| **`ADEFF`** | Efficacy Analysis Dataset | Secondary efficacy endpoints and target lesion measurements |
 
-> 🔒 *Note: Per clinical confidentiality standards, raw participant-level datasets are excluded from this repository.*
+> 🔒 **Note:** Following clinical confidentiality standards, raw participant-level datasets are not included in this repository.
 
 ---
 
 ## 📂 Repository Structure
 
-* [01_Tables/](./01_Tables/) — SAS programs for tables (demographics, AE, lab, efficacy)
-* [02_Listings/](./02_Listings/) — SAS programs for patient listings
-* [03_Figures/](./03_Figures/) — SAS programs for figures (Kaplan-Meier, waterfall plots)
-* [04_OUTPUTS/](./04_OUTPUTS/) — Generated production outputs approved for public sharing
-  * [04_OUTPUTS/01_Tables/](./04_OUTPUTS/01_Tables/) — Formatted RTF/PDF table outputs
-  * [04_OUTPUTS/02_Listings/](./04_OUTPUTS/02_Listings/) — Formatted patient listings
-  * [04_OUTPUTS/03_Figures/](./04_OUTPUTS/03_Figures/) — High-resolution clinical graphics & plots
-* [LICENSE](./LICENSE) — MIT License terms
+| Folder / File | What's inside |
+|---------------|---------------|
+| 📁 [01_Tables/](./01_Tables/) | SAS programs for tables (demographics, AE, lab, efficacy) |
+| 📁 [02_Listings/](./02_Listings/) | SAS programs for patient listings |
+| 📁 [03_Figures/](./03_Figures/) | SAS programs for figures (Kaplan-Meier, waterfall plots) |
+| 📁 [04_OUTPUTS/](./04_OUTPUTS/) | Generated outputs approved for public sharing |
+| &nbsp;&nbsp;&nbsp;↳ 📄 [01_Tables/](./04_OUTPUTS/01_Tables/) | Formatted RTF/PDF table outputs |
+| &nbsp;&nbsp;&nbsp;↳ 📄 [02_Listings/](./04_OUTPUTS/02_Listings/) | Formatted patient listings |
+| &nbsp;&nbsp;&nbsp;↳ 🖼️ [03_Figures/](./04_OUTPUTS/03_Figures/) | High-resolution clinical graphics and plots |
+| ⚖️ [LICENSE](./LICENSE) | MIT License terms |
+
+---
+
+## 🎯 Skills Shown in This Project
+
+| Area | What it covers |
+|------|----------------|
+| **SAS programming** | Data Step, PROC SUMMARY, PROC FREQ, PROC TRANSPOSE |
+| **Reporting** | ODS RTF, PROC REPORT for production-style tables and listings |
+| **Graphics** | PROC SGPLOT figures, including Kaplan-Meier and waterfall plots |
+| **Survival analysis** | PROC LIFETEST for PFS and OS |
+| **Clinical standards** | CDISC ADaM datasets, RECIST 1.1 response, TEAE safety summaries |
+
 ---
 
 ## 🛠️ Tools & SAS Execution Environment
 
-* **Environment:** SAS Studio / Base SAS 9.4_M8
-* **Reporting & Graphics:** ODS RTF, PROC REPORT, PROC SGPLOT, PROC LIFETEST
-* **Data Manipulation:** Base SAS Data Step, PROC SUMMARY, PROC FREQ, PROC TRANSPOSE
+| | |
+|---|---|
+| **Environment** | SAS Studio / Base SAS 9.4_M8 |
+| **Reporting & graphics** | ODS RTF, PROC REPORT, PROC SGPLOT, PROC LIFETEST |
+| **Data manipulation** | Base SAS Data Step, PROC SUMMARY, PROC FREQ, PROC TRANSPOSE |
 
-### Execution Requirements
-The programs require the corresponding input ADaM datasets and may need path updates for another SAS environment. Since the input datasets are not included, the programs cannot be run from this repository alone.
+### ⚙️ Execution Requirements
+
+The programs need the matching input ADaM datasets and may need path updates to run in another SAS environment. Because the input datasets are not included, the programs cannot be run from this repository alone.
 
 ---
 
 ## 🔒 Confidentiality & Compliance
 
-This repository contains SAS code and selected outputs developed for biostatistical training and portfolio presentation. No real patient data or unmasked protected health information (PHI) is hosted in this repository.
+This repository contains SAS code and selected outputs developed for biostatistical training and portfolio presentation. No real patient data or unmasked protected health information (PHI) is hosted here.
+
+---
+
+## 👤 Author
+
+**Ansania Salam**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Ansania%20Salam-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ansania-salam)
 
 ---
 
 ## ⚖️ License
 
-This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE) file for details.
+This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for details.
 
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:BE123C,100:1E3A8A&height=100&section=footer" alt="footer" />
 ---
-
-## Author
-
-Ansania Salam
