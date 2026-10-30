@@ -1,17 +1,29 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1E3A8A,100:BE123C&height=210&section=header&text=Phase%201%20Oncology%20Clinical%20Trial&fontSize=38&fontColor=ffffff&desc=TLF%20programming%20in%20SAS%20%7C%20CDISC%20ADaM&descAlignY=66" alt="Phase 1 Oncology Clinical Trial banner" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1E3A8A,100:BE123C&height=220&section=header&text=Phase%201%20Oncology%20Clinical%20Trial&fontSize=38&fontColor=ffffff&animation=fadeIn&desc=%F0%9F%8E%97%EF%B8%8F%20TLF%20programming%20in%20SAS%20%7C%20CDISC%20ADaM%20%F0%9F%A7%AC&descSize=18&descAlignY=68" alt="Phase 1 Oncology Clinical Trial banner" />
 
-![SAS](https://img.shields.io/badge/SAS-9.4-1E3A8A?logo=sas&logoColor=white)
-![CDISC](https://img.shields.io/badge/CDISC-SDTM%20%2F%20ADaM-2563EB)
-![Domain](https://img.shields.io/badge/Domain-Oncology-BE123C)
-![Outputs](https://img.shields.io/badge/Outputs-Tables%20%7C%20Listings%20%7C%20Figures-7C3AED)
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Status](https://img.shields.io/badge/status-completed-success)
+<img src="./assets/oncology-logo.svg" width="130" alt="Oncology ribbon logo" />
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pduration=2500&duration=3500&pause=900&color=BE123C&center=true&vCenter=true&width=700&lines=Tables+%C2%B7+Listings+%C2%B7+Figures;SDTM+%E2%86%92+ADaM+%E2%86%92+TLF;Kaplan-Meier+%C2%B7+Waterfall+%C2%B7+TEAE+summaries" alt="typing" />
+
+<br>
+
+<img src="https://img.shields.io/badge/SAS-9.4_M8-1E3A8A?style=for-the-badge&logo=sas&logoColor=white" />
+<img src="https://img.shields.io/badge/CDISC-SDTM%20%2F%20ADaM-2563EB?style=for-the-badge" />
+<img src="https://img.shields.io/badge/🎗️_Domain-Oncology-BE123C?style=for-the-badge" />
+<img src="https://img.shields.io/badge/RECIST-1.1-0F766E?style=for-the-badge" />
+
+<img src="https://img.shields.io/badge/🧬_Phase_1-Immunotherapy-7C3AED?style=flat-square" />
+<img src="https://img.shields.io/badge/💉_Intralesional-Drug_Vaccine-E11D48?style=flat-square" />
+<img src="https://img.shields.io/badge/Outputs-Tables%20%7C%20Listings%20%7C%20Figures-1E3A8A?style=flat-square" />
+<img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" />
+<img src="https://img.shields.io/badge/Status-Completed-success?style=flat-square" />
 
 ## 🔬 Intralesional Immunotherapy with Active Drug Vaccine in Patients with Advanced Merkel Cell Carcinoma or Cutaneous Squamous Cell Carcinoma
 
 **SAS programs for Tables, Listings and Figures (TLFs) in a Phase 1 oncology study.**
+
+🎗️ 🧬 🔬 💉 🩺 📊
 
 </div>
 
@@ -28,11 +40,65 @@ This portfolio project uses **SAS 9.4** to analyse clinical trial data and produ
 | | |
 |---|---|
 | 🧪 **Phase** | Phase 1 |
-| 🎯 **Indication** | Advanced Merkel Cell Carcinoma (MCC) or Cutaneous Squamous Cell Carcinoma (cSCC) |
+| 🎗️ **Indication** | Advanced Merkel Cell Carcinoma (MCC) or Cutaneous Squamous Cell Carcinoma (cSCC) |
 | 💉 **Intervention** | Intralesional immunotherapy with an active drug vaccine |
-| 📐 **Data standards** | CDISC SDTM and ADaM |
+| 🧬 **Data standards** | CDISC SDTM and ADaM |
 | 💻 **Software** | SAS Studio, Base SAS 9.4_M8 |
 | 📊 **Deliverables** | Tables, Listings and Figures |
+
+---
+
+## 🔄 Workflow
+
+```mermaid
+flowchart LR
+    A[🧬 SDTM domains] --> B[📐 ADaM datasets]
+    B --> C[💻 SAS programs]
+    C --> D[📋 Tables]
+    C --> E[🩺 Listings]
+    C --> F[📈 Figures]
+    style A fill:#1E3A8A,color:#fff,stroke:none
+    style B fill:#2563EB,color:#fff,stroke:none
+    style C fill:#7C3AED,color:#fff,stroke:none
+    style D fill:#BE123C,color:#fff,stroke:none
+    style E fill:#E11D48,color:#fff,stroke:none
+    style F fill:#F43F5E,color:#fff,stroke:none
+```
+
+---
+
+## ⭐ Main Concepts Highlighted
+
+<table>
+<tr>
+<td width="50%">
+
+### 💻 SAS programming
+- **Data Step**
+- **PROC SUMMARY** and **PROC FREQ** for summaries
+- **PROC TRANSPOSE** for reshaping data
+- **ODS RTF** and **PROC REPORT** for production-style tables and listings
+
+</td>
+<td width="50%">
+
+### 🧬 Clinical analysis
+- **Survival analysis** with **PROC LIFETEST** for PFS and OS
+- **RECIST 1.1** best overall response
+- **TEAE** safety summaries
+- **CDISC ADaM** analysis datasets
+
+</td>
+</tr>
+</table>
+
+| Concept | Where it is used |
+|---------|------------------|
+| 📉 **Kaplan-Meier plots** | Progression-free survival and overall survival (`ADTTE`) |
+| 🌊 **Waterfall plots** | Tumour assessment and target lesion measurements |
+| ⚠️ **TEAE tables** | Safety profile from adverse events (`ADAE`) |
+| 🧪 **Lab toxicity grades** | Hematology and chemistry shifts (`ADLB`) |
+| 🎗️ **Best overall response** | Response by RECIST 1.1 (`ADRS`) |
 
 ---
 
@@ -76,6 +142,7 @@ The analysis uses CDISC-compliant **ADaM (Analysis Data Model)** datasets derive
 | &nbsp;&nbsp;&nbsp;↳ 📄 [01_Tables/](./04_OUTPUTS/01_Tables/) | Formatted RTF/PDF table outputs |
 | &nbsp;&nbsp;&nbsp;↳ 📄 [02_Listings/](./04_OUTPUTS/02_Listings/) | Formatted patient listings |
 | &nbsp;&nbsp;&nbsp;↳ 🖼️ [03_Figures/](./04_OUTPUTS/03_Figures/) | High-resolution clinical graphics and plots |
+| 🎗️ [assets/](./assets/) | Project logo |
 | ⚖️ [LICENSE](./LICENSE) | MIT License terms |
 
 ---
@@ -114,9 +181,12 @@ This repository contains SAS code and selected outputs developed for biostatisti
 
 ## 👤 Author
 
-**Ansania Salam**
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Ansania%20Salam-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ansania-salam)
+<p align="center">
+  <b>Ansania Salam</b><br><br>
+  <a href="https://www.linkedin.com/in/ansania-salam">
+    <img src="https://img.shields.io/badge/LinkedIn-Ansania%20Salam-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+</p>
 
 ---
 
@@ -125,4 +195,3 @@ This repository contains SAS code and selected outputs developed for biostatisti
 This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for details.
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:BE123C,100:1E3A8A&height=100&section=footer" alt="footer" />
-
