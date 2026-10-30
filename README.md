@@ -9,11 +9,10 @@
 ![SAS](https://img.shields.io/badge/SAS-9.4-1E3A8A?logo=sas&logoColor=white)
 ![CDISC](https://img.shields.io/badge/CDISC-SDTM%20%2F%20ADaM-2563EB)
 ![Domain](https://img.shields.io/badge/Domain-Oncology-BE123C)
-![RECIST](https://img.shields.io/badge/RECIST-1.1-0F766E)
-![Phase](https://img.shields.io/badge/Phase-1-7C3AED)
-![Outputs](https://img.shields.io/badge/Outputs-Tables%20%7C%20Listings%20%7C%20Figures-E11D48)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Status](https://img.shields.io/badge/status-completed-success)
+
+**Phase 1 · RECIST 1.1 · Tables, Listings and Figures**
 
 ## 🔬 Intralesional Immunotherapy with Active Drug Vaccine in Patients with Advanced Merkel Cell Carcinoma or Cutaneous Squamous Cell Carcinoma
 
