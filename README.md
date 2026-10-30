@@ -1,29 +1,25 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1E3A8A,100:BE123C&height=220&section=header&text=Phase%201%20Oncology%20Clinical%20Trial&fontSize=38&fontColor=ffffff&animation=fadeIn&desc=%F0%9F%8E%97%EF%B8%8F%20TLF%20programming%20in%20SAS%20%7C%20CDISC%20ADaM%20%F0%9F%A7%AC&descSize=18&descAlignY=68" alt="Phase 1 Oncology Clinical Trial banner" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1E3A8A,100:BE123C&height=220&section=header&text=Phase%201%20Oncology%20Clinical%20Trial&fontSize=38&fontColor=ffffff&animation=fadeIn&desc=TLF%20programming%20in%20SAS%20%7C%20CDISC%20ADaM&descSize=18&descAlignY=68" alt="Phase 1 Oncology Clinical Trial banner" />
 
 <img src="./assets/oncology-logo.svg" width="130" alt="Oncology ribbon logo" />
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pduration=2500&duration=3500&pause=900&color=BE123C&center=true&vCenter=true&width=700&lines=Tables+%C2%B7+Listings+%C2%B7+Figures;SDTM+%E2%86%92+ADaM+%E2%86%92+TLF;Kaplan-Meier+%C2%B7+Waterfall+%C2%B7+TEAE+summaries" alt="typing" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pduration=2500&duration=3500&pause=900&color=BE123C&center=true&vCenter=true&width=820&lines=Tables+%C2%B7+Listings+%C2%B7+Figures;SDTM+%E2%86%92+ADaM+%E2%86%92+TLF;Kaplan-Meier+%C2%B7+Waterfall+%C2%B7+TEAE" alt="typing" />
 
-<br>
-
-<img src="https://img.shields.io/badge/SAS-9.4_M8-1E3A8A?style=for-the-badge&logo=sas&logoColor=white" />
-<img src="https://img.shields.io/badge/CDISC-SDTM%20%2F%20ADaM-2563EB?style=for-the-badge" />
-<img src="https://img.shields.io/badge/🎗️_Domain-Oncology-BE123C?style=for-the-badge" />
-<img src="https://img.shields.io/badge/RECIST-1.1-0F766E?style=for-the-badge" />
-
-<img src="https://img.shields.io/badge/🧬_Phase_1-Immunotherapy-7C3AED?style=flat-square" />
-<img src="https://img.shields.io/badge/💉_Intralesional-Drug_Vaccine-E11D48?style=flat-square" />
-<img src="https://img.shields.io/badge/Outputs-Tables%20%7C%20Listings%20%7C%20Figures-1E3A8A?style=flat-square" />
-<img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" />
-<img src="https://img.shields.io/badge/Status-Completed-success?style=flat-square" />
+![SAS](https://img.shields.io/badge/SAS-9.4-1E3A8A?logo=sas&logoColor=white)
+![CDISC](https://img.shields.io/badge/CDISC-SDTM%20%2F%20ADaM-2563EB)
+![Domain](https://img.shields.io/badge/Domain-Oncology-BE123C)
+![RECIST](https://img.shields.io/badge/RECIST-1.1-0F766E)
+![Phase](https://img.shields.io/badge/Phase-1-7C3AED)
+![Outputs](https://img.shields.io/badge/Outputs-Tables%20%7C%20Listings%20%7C%20Figures-E11D48)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Status](https://img.shields.io/badge/status-completed-success)
 
 ## 🔬 Intralesional Immunotherapy with Active Drug Vaccine in Patients with Advanced Merkel Cell Carcinoma or Cutaneous Squamous Cell Carcinoma
 
 **SAS programs for Tables, Listings and Figures (TLFs) in a Phase 1 oncology study.**
 
-🎗️ 🧬 🔬 💉 🩺 📊
+🎗️ 🔬 💉 🩺 📊
 
 </div>
 
@@ -42,7 +38,7 @@ This portfolio project uses **SAS 9.4** to analyse clinical trial data and produ
 | 🧪 **Phase** | Phase 1 |
 | 🎗️ **Indication** | Advanced Merkel Cell Carcinoma (MCC) or Cutaneous Squamous Cell Carcinoma (cSCC) |
 | 💉 **Intervention** | Intralesional immunotherapy with an active drug vaccine |
-| 🧬 **Data standards** | CDISC SDTM and ADaM |
+| 📐 **Data standards** | CDISC SDTM and ADaM |
 | 💻 **Software** | SAS Studio, Base SAS 9.4_M8 |
 | 📊 **Deliverables** | Tables, Listings and Figures |
 
@@ -52,10 +48,10 @@ This portfolio project uses **SAS 9.4** to analyse clinical trial data and produ
 
 ```mermaid
 flowchart LR
-    A[🧬 SDTM domains] --> B[📐 ADaM datasets]
+    A[🗂️ SDTM domains] --> B[📐 ADaM datasets]
     B --> C[💻 SAS programs]
-    C --> D[📋 Tables]
-    C --> E[🩺 Listings]
+    C --> D[▦ Tables]
+    C --> E[🧾 Listings]
     C --> F[📈 Figures]
     style A fill:#1E3A8A,color:#fff,stroke:none
     style B fill:#2563EB,color:#fff,stroke:none
@@ -82,7 +78,7 @@ flowchart LR
 </td>
 <td width="50%">
 
-### 🧬 Clinical analysis
+### 🩺 Clinical analysis
 - **Survival analysis** with **PROC LIFETEST** for PFS and OS
 - **RECIST 1.1** best overall response
 - **TEAE** safety summaries
@@ -181,12 +177,9 @@ This repository contains SAS code and selected outputs developed for biostatisti
 
 ## 👤 Author
 
-<p align="center">
-  <b>Ansania Salam</b><br><br>
-  <a href="https://www.linkedin.com/in/ansania-salam">
-    <img src="https://img.shields.io/badge/LinkedIn-Ansania%20Salam-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
-  </a>
-</p>
+**Ansania Salam**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Ansania%20Salam-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ansania-salam)
 
 ---
 
