@@ -2,7 +2,7 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1E3A8A,100:BE123C&height=220&section=header&text=Phase%201%20Oncology%20Clinical%20Trial&fontSize=38&fontColor=ffffff&animation=fadeIn&desc=TLF%20programming%20in%20SAS%20%7C%20CDISC%20ADaM&descSize=18&descAlignY=68" alt="Phase 1 Oncology Clinical Trial banner" />
 
-<img src="./assets/oncology-logo.svg" width="130" alt="Oncology ribbon logo" />
+<h1>🎗️</h1>
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pduration=2500&duration=3500&pause=900&color=BE123C&center=true&vCenter=true&width=820&lines=Tables+%C2%B7+Listings+%C2%B7+Figures;SDTM+%E2%86%92+ADaM+%E2%86%92+TLF;Kaplan-Meier+%C2%B7+Waterfall+%C2%B7+TEAE" alt="typing" />
 
@@ -137,7 +137,6 @@ The analysis uses CDISC-compliant **ADaM (Analysis Data Model)** datasets derive
 | &nbsp;&nbsp;&nbsp;↳ 📄 [01_Tables/](./04_OUTPUTS/01_Tables/) | Formatted RTF/PDF table outputs |
 | &nbsp;&nbsp;&nbsp;↳ 📄 [02_Listings/](./04_OUTPUTS/02_Listings/) | Formatted patient listings |
 | &nbsp;&nbsp;&nbsp;↳ 🖼️ [03_Figures/](./04_OUTPUTS/03_Figures/) | High-resolution clinical graphics and plots |
-| 🎗️ [assets/](./assets/) | Project logo |
 | ⚖️ [LICENSE](./LICENSE) | MIT License terms |
 
 ---
